@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private float speed = 8f;
     private float jumpingPower = 16f;
     public bool isFacingRight { set; get; } = true;
+    public bool onPlatform;
     
     private Rigidbody2D rb;
     private Animator animator;
@@ -87,6 +88,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Elevator"))
         {
             transform.parent = collision.gameObject.transform;
+            onPlatform = true;
         }
     }
 
@@ -95,6 +97,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Elevator"))
         {
             transform.parent = null;
+            onPlatform = false;
         }
     }
 
