@@ -6,8 +6,8 @@ public class LightCandle : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer flame;
 
-    private bool canInteract;
-    public bool isLit = false;
+    private bool canInteractWithCandle;
+    public bool isCandleLit = false;
 
     private PlayerController player;
 
@@ -21,18 +21,18 @@ public class LightCandle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canInteract)
+        if (canInteractWithCandle)
         {
             if (Input.GetKeyDown(KeyCode.E) && flame.gameObject.activeInHierarchy == false)
             {
                 flame.gameObject.SetActive(true);
-                if (isLit == false)
+                if (isCandleLit == false)
                 {
-                    isLit = true;
+                    isCandleLit = true;
                 }
             }
         }
-        if (isLit == true)
+        if (isCandleLit == true)
         {
             GetComponent<Collider2D>().enabled = false;
         }
@@ -42,7 +42,7 @@ public class LightCandle : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            canInteract = true;
+            canInteractWithCandle = true;
             player.Interested();
         }
     }
@@ -51,7 +51,7 @@ public class LightCandle : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            canInteract = false;
+            canInteractWithCandle = false;
             player.NotInterested();
         }
     }

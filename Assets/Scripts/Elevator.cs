@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -30,23 +31,15 @@ public class Elevator : MonoBehaviour
 
     void StartElevator()
     {
-        if (match.isLit == true && Input.GetKeyDown(KeyCode.E))
-        {
-            isElevatorDown = false;
-        }
-        else if (match.isLit == false && Input.GetKeyDown(KeyCode.E))
-        {
-            isElevatorDown = true;
-        }
-
-        //if (transform.position.y <= downPos.position.y)
-        //{
-        //    isElevatorDown = true;
-        //}
-        //else if (transform.position.y >= upPos.position.y)
-        //{
-        //    isElevatorDown = false;
-        //}
+        if (playerController.onPlatform == true && match.isCandleLit == true)
+            if (transform.position.y <= downPos.position.y)
+            {
+                isElevatorDown = true;
+            }
+            else if (transform.position.y >= upPos.position.y)
+            {
+                isElevatorDown = false;
+            }
 
         if (isElevatorDown)
         {

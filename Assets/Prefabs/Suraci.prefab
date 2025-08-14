@@ -178,12 +178,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1b9377bb765c454cbbc6c1a37378591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onPlatform: 0
   groundCheck: {fileID: 1313237262316155304}
   groundLayer:
     serializedVersion: 2
     m_Bits: 520
   cameraFollowOB: {fileID: 0}
-  sfx: {fileID: 0}
+  withFriction: {fileID: 6200000, guid: 3c25ed1cdeacfbf48815753dce58a65b, type: 2}
+  withoutFriction: {fileID: 6200000, guid: 928189fc1ec3cbf43be2d3d6e4056c88, type: 2}
 --- !u!114 &5657544540553854791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,6 +213,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: dbb506b931bcb6d40aabbffcd3dba9df, type: 3}
   woodSFX: []
   footstepSource: {fileID: 1517436660542017294}
+  groundTag: 0
 --- !u!95 &882875543713702836
 Animator:
   serializedVersion: 7

@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private GameObject cameraFollowOB;
+    [SerializeField] private PhysicsMaterial2D withFriction;
+    [SerializeField] private PhysicsMaterial2D withoutFriction;
 
     // Start is called before the first frame update
     void Start()
@@ -119,6 +121,18 @@ public class PlayerController : MonoBehaviour
         else
         {
             isMoving = true;
+        }
+    }
+
+    public void CheckSlopes()
+    {
+        if (isMoving == true)
+        {
+            rb.sharedMaterial = withoutFriction;
+        }
+        else
+        {
+            rb.sharedMaterial = withFriction;
         }
     }
 
