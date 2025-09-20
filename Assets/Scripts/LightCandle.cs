@@ -37,6 +37,12 @@ public class LightCandle : MonoBehaviour
             GetComponent<Collider2D>().enabled = false;
         }
     }
+    public void UnLightCandle()
+    {
+        flame.gameObject.SetActive(false);
+        isCandleLit = false;
+        GetComponent<Collider2D>().enabled = true;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

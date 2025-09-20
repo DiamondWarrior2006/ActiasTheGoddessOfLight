@@ -1,53 +1,59 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Elevator : MonoBehaviour
 {
-    [SerializeField] private LightCandle match;
+    [SerializeField] private LightCandle elevatorCandle; // candle tied to this elevator
     [SerializeField] private Transform downPos;
     [SerializeField] private Transform upPos;
+    [SerializeField] private float speed = 2f;
+    [SerializeField] private float returnDelay = 3f; // time after player leaves before going down
 
-    public float speed;
-
-    private bool isElevatorDown;
-    private Transform player;
+    private bool isMoving = false;
+    private bool isUp = false;
     private PlayerController playerController;
 
-    // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        transform.position = downPos.position; // start at bottom
     }
 
-    // Update is called once per frame
     void Update()
     {
-        StartElevator();
+        if (!isMoving && !isUp && playerController.onPlatform && elevatorCandle.isCandleLit)
+        {
+            // go up when candle lit & player is on platform
+            StartCoroutine(MoveElevator(upPos.position, true));
+        }
     }
 
-    void StartElevator()
+    IEnumerator MoveElevator(Vector3 targetPos, bool goingUp)
     {
-        if (playerController.onPlatform == true && match.isCandleLit == true)
-            if (transform.position.y <= downPos.position.y)
-            {
-                isElevatorDown = true;
-            }
-            else if (transform.position.y >= upPos.position.y)
-            {
-                isElevatorDown = false;
-            }
+        isMoving = true;
 
-        if (isElevatorDown)
+        while (Vector2.Distance(transform.position, targetPos) > 0.01f)
         {
-            transform.position = Vector2.MoveTowards(transform.position, upPos.position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+            yield return null;
+        }
+
+        transform.position = targetPos;
+        isUp = goingUp;
+        isMoving = false;
+
+        // if we just went up, wait for player to leave → go down after delay
+        if (goingUp)
+        {
+            yield return new WaitUntil(() => !playerController.onPlatform);
+            yield return new WaitForSeconds(returnDelay);
+
+            StartCoroutine(MoveElevator(downPos.position, false));
         }
         else
         {
-            transform.position = Vector2.MoveTowards(transform.position, downPos.position, speed * Time.deltaTime);
+            // fully down, deactivate elevator
+            elevatorCandle.UnLightCandle();
         }
     }
 }
