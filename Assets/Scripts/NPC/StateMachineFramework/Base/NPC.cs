@@ -61,7 +61,7 @@ public class NPC : MonoBehaviour, INPCMoveable
 
     public void NPCMove(Vector2 velocity)
     {
-        rb.velocity = new Vector2(velocity.x, rb.velocity.y);
+        rb.linearVelocity = new Vector2(velocity.x, rb.linearVelocity.y);
         CheckForLeftOrRightFacing(velocity);
     }
 }

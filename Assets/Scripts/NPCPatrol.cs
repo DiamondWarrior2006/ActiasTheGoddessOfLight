@@ -51,7 +51,7 @@ public class NPCPatrol : MonoBehaviour
     void FixedUpdate()
     {
         if (isWalking)
-            rb.velocity = Vector2.right * facingDirection * speed;
+            rb.linearVelocity = Vector2.right * facingDirection * speed;
         timer += Time.deltaTime;
     }
     

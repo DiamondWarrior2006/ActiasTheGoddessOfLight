@@ -65,12 +65,12 @@ public class PlayerController : MonoBehaviour
         Glide();
         PlayerAnimations();
 
-        if (rb.velocity.y < fallSpeedYDampingChangeThreshold && !CameraManager.instance.IsLerpingYDamping && !CameraManager.instance.LerpedFromPlayerFalling)
+        if (rb.linearVelocity.y < fallSpeedYDampingChangeThreshold && !CameraManager.instance.IsLerpingYDamping && !CameraManager.instance.LerpedFromPlayerFalling)
         {
             CameraManager.instance.LerpYDamping(true);
         }
 
-        if (rb.velocity.y >= 0f && !CameraManager.instance.IsLerpingYDamping && CameraManager.instance.LerpedFromPlayerFalling)
+        if (rb.linearVelocity.y >= 0f && !CameraManager.instance.IsLerpingYDamping && CameraManager.instance.LerpedFromPlayerFalling)
         {
             CameraManager.instance.LerpedFromPlayerFalling = false;
 
@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
 
         TurnCheck();
     }
@@ -165,16 +165,16 @@ public class PlayerController : MonoBehaviour
         ///If the jump button is held
         if (jumpBufferCounter > 0f && coyoteTimeCounter > 0f)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
             animator.SetTrigger("Jump");
 
             jumpBufferCounter = 0f;
         }
 
         ///If the jump button is released
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+        if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0f)
         {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
 
             coyoteTimeCounter = 0f;
         }
@@ -187,10 +187,10 @@ public class PlayerController : MonoBehaviour
     {
         //Gliding
 
-        if (Input.GetMouseButton(0) && rb.velocity.y <= 0f && !IsGrounded())
+        if (Input.GetMouseButton(0) && rb.linearVelocity.y <= 0f && !IsGrounded())
         {
             rb.gravityScale = 0;
-            rb.velocity = new Vector2(rb.velocity.x, -glidingSpeed);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, -glidingSpeed);
             animator.SetBool("Gliding", true);
         }
         else
