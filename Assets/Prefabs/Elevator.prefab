@@ -445,7 +445,7 @@ BoxCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
@@ -472,10 +472,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87b02985e9c02634fa217c983ce40f24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  match: {fileID: 4229095112353996124}
+  elevatorCandle: {fileID: 4229095112353996124}
   downPos: {fileID: 8836973223204181911}
   upPos: {fileID: 950962795582989958}
   speed: 3
+  returnDelay: 3
 --- !u!114 &1118594063985582916
 MonoBehaviour:
   m_ObjectHideFlags: 0
