@@ -34,7 +34,7 @@ public class BurnPaper : MonoBehaviour
 
         if (burned == true)
         {
-            GetComponent<CircleCollider2D>().enabled = false;
+            GetComponent<Collider2D>().enabled = false;
         }
     }
 

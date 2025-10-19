@@ -30,9 +30,9 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2905764967384224458}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -50,6 +50,7 @@ MeshRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -58,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8232903261261657317, guid: f1eaba59f4eef0646af1d2c27a22cde8, type: 2}
+  - {fileID: -320833969869179420, guid: b425c85f80485b74eb0b892754b0eb03, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -109,7 +110,7 @@ MonoBehaviour:
   layout:
     Size:
       X:
-        Raw: 100.90104
+        Raw: 96.47615
         Type: 0
       Y:
         Raw: 40.920002
@@ -229,10 +230,10 @@ MonoBehaviour:
       Z: 0
     AutoSize:
       X: 2
-      Y: 2
+      Y: 0
       Z: 0
     RotateSize: 0
-    AspectRatio: {x: 0, y: 0, z: 0}
+    AspectRatio: {x: 1, y: 0.5444657, z: 0}
     AspectRatioAxis: 0
   autoLayout:
     Axis: 0
@@ -290,11 +291,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Start
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f1eaba59f4eef0646af1d2c27a22cde8, type: 2}
-  m_sharedMaterial: {fileID: -8232903261261657317, guid: f1eaba59f4eef0646af1d2c27a22cde8,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b425c85f80485b74eb0b892754b0eb03, type: 2}
+  m_sharedMaterial: {fileID: -320833969869179420, guid: b425c85f80485b74eb0b892754b0eb03, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -318,15 +318,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 300
-  m_fontSizeBase: 300
+  m_fontSize: 450
+  m_fontSizeBase: 450
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0.5
   m_fontSizeMax: 2
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -354,15 +354,15 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0, y: -0, z: -0, w: -0}
+  m_margin: {x: -0, y: -20.460001, z: -0, w: -20.460001}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 2905764967356318469}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 2905764967356318469}
+  m_maskType: 0
 --- !u!1 &2905764967384224463
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,13 +391,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2905764967384224463}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2905764967356318468}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2905764967384224459
 MonoBehaviour:
@@ -428,10 +429,10 @@ MonoBehaviour:
   layout:
     Size:
       X:
-        Raw: 240
+        Raw: 320
         Type: 0
       Y:
-        Raw: 60
+        Raw: 80
         Type: 0
       Z:
         Raw: 0
@@ -441,7 +442,7 @@ MonoBehaviour:
         Raw: 0
         Type: 0
       Y:
-        Raw: 0
+        Raw: -80
         Type: 0
       Z:
         Raw: 0
@@ -551,10 +552,10 @@ MonoBehaviour:
       Y: 0
       Z: 0
     RotateSize: 0
-    AspectRatio: {x: 0, y: 0, z: 0}
-    AspectRatioAxis: 0
+    AspectRatio: {x: 1, y: 0.25, z: 0}
+    AspectRatioAxis: 1
   autoLayout:
-    Axis: 0
+    Axis: 1
     Spacing:
       Raw: 0
       Type: 0
@@ -563,10 +564,10 @@ MonoBehaviour:
       Max: Infinity
     AutoSpace: 0
     ReverseOrder: 0
-    alignment: -1
+    alignment: 0
     Offset: 0
     Cross:
-      Axis: 0
+      Axis: 2
       Spacing:
         Raw: 0
         Type: 0
@@ -575,7 +576,7 @@ MonoBehaviour:
         Max: Infinity
       AutoSpace: 0
       ReverseOrder: 0
-      alignment: -1
+      alignment: 0
       ExpandToGrid: 0
   visibility:
     ZIndex: 0
@@ -590,9 +591,9 @@ MonoBehaviour:
     ReceiveShadows: 1
   PreviewSize: {x: 240, y: 60, z: 0}
   visuals:
-    Color: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    Color: {r: 0.18431373, g: 0.1764706, b: 0.3372549, a: 1}
     CornerRadius:
-      Raw: 30
+      Raw: 12.39
       Type: 0
     RadialFill:
       Center:
@@ -606,46 +607,46 @@ MonoBehaviour:
       FillAngle: 90
       Enabled: 0
     Gradient:
-      Color: {r: 1, g: 1, b: 1, a: 1}
+      Color: {r: 0.39296702, g: 0.32800817, b: 0.5943396, a: 0.5}
       Center:
         X:
           Raw: 0
           Type: 1
         Y:
-          Raw: 0
+          Raw: 0.5
           Type: 1
       Radius:
         X:
-          Raw: 0.5
+          Raw: 0.7
           Type: 1
         Y:
-          Raw: 0.5
+          Raw: 0.7
           Type: 1
       Rotation: 0
-      Enabled: 0
+      Enabled: 1
     Border:
-      Color: {r: 0.4, g: 0.4, b: 0.4, a: 1}
+      Color: {r: 1, g: 1, b: 1, a: 1}
       Width:
-        Raw: 2
+        Raw: 5
         Type: 0
       Enabled: 1
-      Direction: 2
+      Direction: 0
     Shadow:
       Color: {r: 0, g: 0, b: 0, a: 0.5}
       Width:
-        Raw: 0
+        Raw: 5.87
         Type: 0
       Blur:
-        Raw: 2
+        Raw: 16.45
         Type: 0
       Offset:
         X:
-          Raw: 0
+          Raw: 5
           Type: 0
         Y:
-          Raw: -1
+          Raw: -5
           Type: 0
-      Enabled: 0
+      Enabled: 1
       Direction: 0
     Image:
       Adjustment:
@@ -671,10 +672,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visuals:
-    id: 0
+    rid: 0
   references:
-    version: 1
-    00000000:
+    version: 2
+    RefIds:
+    - rid: 0
       type: {class: ButtonVisuals, ns: NovaSamples.UIControls, asm: Nova.UIControls}
       data:
         TransitionType: 1
@@ -706,12 +708,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObstructDrags: 0
-  DragThreshold: 1
+  DragThreshold: 0
   LowAccuracyDragThreshold: 30
   ClickBehavior: 0
   navigable: 1
   onSelect: 0
-  autoSelect: 0
+  autoSelect: 1
   Navigation:
     Left:
       Type: 0

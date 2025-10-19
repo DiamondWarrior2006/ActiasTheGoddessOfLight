@@ -7,6 +7,8 @@ public class Switch : MonoBehaviour
     private bool inArea;
     private bool switchEnabled;
 
+    private PlayerController player;
+
     enum leverPurpose
     {
         openDoor,
@@ -22,7 +24,7 @@ public class Switch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -35,12 +37,18 @@ public class Switch : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E) && switchEnabled == false)
                 {
                     door.SetActive(false);
+                    GetComponent<SpriteRenderer>().flipX = true;
                     switchEnabled = true;
                 }
             }
             else if (lever == leverPurpose.testOne)
             {
                 print("This is Test One!!!");
+            }
+
+            if (switchEnabled == true)
+            {
+                GetComponent<Collider2D>().enabled = false;
             }
         }
     }
@@ -50,7 +58,7 @@ public class Switch : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             inArea = true;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().Interested();
+            player.Interested();
         }
     }
 
@@ -59,7 +67,7 @@ public class Switch : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             inArea = false;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().NotInterested();
+            player.NotInterested();
         }
     }
 }

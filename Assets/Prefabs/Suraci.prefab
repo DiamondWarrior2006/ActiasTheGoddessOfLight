@@ -173,7 +173,7 @@ MonoBehaviour:
   groundCheck: {fileID: 1313237262316155304}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 520
+    m_Bits: 8
   cameraFollowOB: {fileID: 0}
   withFriction: {fileID: 6200000, guid: 3c25ed1cdeacfbf48815753dce58a65b, type: 2}
   withoutFriction: {fileID: 6200000, guid: 928189fc1ec3cbf43be2d3d6e4056c88, type: 2}

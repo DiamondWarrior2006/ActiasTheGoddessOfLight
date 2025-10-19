@@ -24,10 +24,14 @@ public class PlayerController : MonoBehaviour
 
     private float glidingSpeed = 1f;
     private float initialGravityScale;
+    private float glideTime = 2f;
+    private float glideTimeCounter;
 
     private float fallSpeedYDampingChangeThreshold;
 
     private bool isMoving;
+
+    private bool gliding;
 
     private CameraFollowObject cameraFollowObject;
 
@@ -187,16 +191,27 @@ public class PlayerController : MonoBehaviour
     {
         //Gliding
 
-        if (Input.GetMouseButton(0) && rb.velocity.y <= 0f && !IsGrounded())
+        if (Input.GetMouseButton(0) && rb.velocity.y <= 0f && !IsGrounded() && glideTimeCounter > 0f)
         {
             rb.gravityScale = 0;
             rb.velocity = new Vector2(rb.velocity.x, -glidingSpeed);
+            gliding = true;
             animator.SetBool("Gliding", true);
         }
         else
         {
             rb.gravityScale = initialGravityScale;
+            gliding = false;
             animator.SetBool("Gliding", false);
+        }
+
+        if (gliding == true)
+        {
+            glideTimeCounter -= Time.deltaTime;
+        }
+        else
+        {
+            glideTimeCounter = glideTime;
         }
     }
 

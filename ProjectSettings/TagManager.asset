@@ -12,17 +12,18 @@ TagManager:
   - Elevator
   - Concrete
   - Wood
+  - platform
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Concrete
+  - Ground
   - Water
   - UI
   - Player
   - Click
   - NPC
-  - Wood
+  - 
   - 
   - 
   - 
